@@ -1,0 +1,12 @@
+/*******************************************************************************************************
+* DateTime: 2015-07-16 13:53:15		IP: 58.40.47.68Brower: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36
+* Url : http://dongxuec3xrmobile.nn.cagoe.com/Itf/Php/AjaxItf.php?method=Login
+sql::select userid from cmn_usr_users where username = '陈波' and password='378216ad47cc02ba477d337e41877734'
+*******************************************************************************************************/
+
+/*******************************************************************************************************
+* DateTime: 2015-07-16 13:53:15		IP: 58.40.47.68Brower: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36
+* Url : http://dongxuec3xrmobile.nn.cagoe.com/Itf/Php/AjaxItf.php?method=Login
+GetUserIDCacheKey::
+*******************************************************************************************************/
+

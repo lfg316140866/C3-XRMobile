@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="../../ThirdLib/jquery.js"></script>
+    <script src="../../Cmn.js"></script>
+  
+    <script>
+      
+
+        //动画相关处理
+        (function (window, undefined) {
+            "use strict";
+            alert("==================1");
+         
+            try {
+
+                var _RequestAnimateFrame = new function () {
+                    /// <summary>requestAnimateFrame</summary>
+
+                    this.callback = function () { };
+
+                    var _originalWebkitRequestAnimationFrame = undefined,
+                        _wrapper = undefined,
+                        _callback = undefined,
+                        _geckoVersion = 0,
+                        _userAgent = navigator.userAgent,
+                        _index = 0,
+                        _self = this;
+
+                    // Workaround for Chrome 10 bug where Chrome
+                    // does not pass the time to the animation function
+
+                    if (window.webkitRequestAnimationFrame) {
+                        // Define the wrapper
+
+                        _wrapper = function (time) {
+                            if (time === undefined) { time = +new Date(); }
+                            _self.callback(time);
+                        };
+
+                        // Make the switch
+
+                        _originalWebkitRequestAnimationFrame = window.webkitRequestAnimationFrame;
+
+                        window.webkitRequestAnimationFrame = function (_callback, element) {
+                            _self.callback = _callback;
+
+                            // Browser calls the wrapper and wrapper calls the callback
+
+                            _originalWebkitRequestAnimationFrame(_wrapper, element);
+                        }
+                    }
+
+                    // Workaround for Gecko 2.0, which has a bug in
+                    // mozRequestAnimationFrame() that restricts animations
+                    // to 30-40 fps.
+
+                    if (window.mozRequestAnimationFrame) {
+                        // Check the Gecko version. Gecko is used by browsers
+                        // other than Firefox. Gecko 2.0 corresponds to
+                        // Firefox 4.0.
+
+                        _index = _userAgent.indexOf('rv:');
+
+                        if (_userAgent.indexOf('Gecko') != -1) {
+                            _geckoVersion = _userAgent.substr(_index + 3, 3);
+
+                            if (_geckoVersion === '2.0') {
+                                // Forces the return statement to fall through
+                                // to the setTimeout() function.
+                                window.mozRequestAnimationFrame = undefined;
+                            }
+                        }
+                    }
+
+                    return window.requestAnimationFrame ||
+                        window.webkitRequestAnimationFrame ||
+                        window.mozRequestAnimationFrame ||
+                        window.oRequestAnimationFrame ||
+                        window.msRequestAnimationFrame ||
+
+                        function (_callback, element) {
+                            var _start,
+                                _finish;
+
+                            window.setTimeout(function () {
+                                _start = +new Date();
+                                _callback(_start);
+                                _finish = +new Date();
+
+                                _self.timeout = 1000 / 60 - (_finish - _start);
+
+                            }, _self.timeout);
+                        };
+                };
+
+                alert("==================2");
+           
+           
+            var _CancelRequestAnimateFrame = window.cancelRequestAnimationFrame
+                        || window.webkitCancelAnimationFrame
+                        || window.webkitCancelRequestAnimationFrame
+                        || window.mozCancelRequestAnimationFrame
+                        || window.oCancelRequestAnimationFrame
+                        || window.msCancelRequestAnimationFrame
+                        || window.clearTimeout;
+
+            alert("==================3");
+            Cg.Extend(Cg.Animate = {}, {
+                //浏览器刷新率相关操作
+                BrowserFrame: {
+                    RequestAnimateFrame: function(callback){ return _RequestAnimateFrame(callback); },
+                    CancelRequestAnimateFrame: function (id) { _CancelRequestAnimateFrame(id); }
+                },
+               //时间轴
+                Timeline: {
+                    //时间轴事件管理
+                    TimelineEvent: null,
+                    //时间轴唯一标示 
+                    TimelineOnlyKey: null,
+                    //事件句柄配置
+                    EventHeaderCfgList: { },
+                    //添加时间轴某个监听
+                    Add: function (eventHandle, interval) {
+                        /// <summary>添加时间轴某个监听</summary>
+                        /// <param name="eventHandle" type="function">时间轴事件句柄</param>
+                        /// <param name="fps" type="int">多少间隔触发一次</param>
+
+                        if (this.TimelineEvent == null) { this.TimelineEvent = new Cg.Event(this); }
+
+                        //生成每个时间轴监听句柄的唯一key
+                        var _eventHandleOnlyKey = "timeline_" + Cg.GetUUID();
+
+                        //添加到时间管理里面去
+                        this.TimelineEvent.Add(eventHandle, _eventHandleOnlyKey);
+
+                        //事件句柄列表
+                        this.EventHeaderCfgList[_eventHandleOnlyKey] = {
+                            Key: _eventHandleOnlyKey,
+                            IsMonitor:true,
+                            Then:Date.now(),
+                            Interval: interval
+                        }
+
+                        if (this.TimelineOnlyKey == null) { this.Monitor();}
+
+                        return this;
+                    },
+                    Monitor: function () {
+                        /// <summary>开启监听</summary>
+
+                        var _self = this,
+                           _nowTime = null,
+                           _delta = null;
+
+                        var _monitor = function () {
+                            /// <summary>递归监听</summary>
+
+                            //利用浏览器的ui进程
+                            _self.TimelineOnlyKey = Cg.Animate.BrowserFrame.RequestAnimateFrame(_monitor);
+
+                            //判断事件委托对象
+                            if (_self.TimelineEvent != null) {
+
+                                $.each(_self.EventHeaderCfgList, function () {
+                                    //指向当前事件句柄的配置
+                                    var _headerCfg = this;
+
+                                    //如果关闭了该事件句柄的监听的话
+                                    if (!_headerCfg.IsMonitor) { return;}
+
+                                    //事件句柄的时间间隔必须存在 不存在就表示不需要计算间隔
+                                    if (!!_headerCfg.Interval) {
+                                        //当前时间
+                                        _nowTime = Date.now();
+                                        //当前时间和事件上一次执行时间的时间差
+                                        _delta = _nowTime - _headerCfg.Then;
+                                        // 这里不能简单then=now，否则还会出现细微时间差问题。
+                                        //例如fps=10，每帧100ms，而现在每16ms（60fps）执行一次draw。16*7=112>100，
+                                        //需要7次才实际绘制一次。这个情况下，实际10帧需要112*10=1120ms>1000ms才绘制完成。
+                                        //执行的时间差大于间隔 才执行事件
+                                        if (_delta > _headerCfg.Interval) {
+                                            _headerCfg.Then = _nowTime - (_delta % _headerCfg.Interval);
+                                            //执行事件
+                                            _self.TimelineEvent.Trigger(_headerCfg.Key);
+                                        }
+
+                                    }
+                                    else { _self.TimelineEvent.Trigger(_headerCfg.Key); }
+
+                                });
+                            }
+                        }
+
+                        Cg.Animate.BrowserFrame.RequestAnimateFrame(_monitor);
+                    },
+                    Close: function () {
+                        /// <summary>关闭监听</summary>
+                        Cg.Animate.BrowserFrame.CancelRequestAnimateFrame(this.TimelineOnlyKey);
+                    },
+                    Start: function (eventSignature) {
+                        /// <summary>开始某个时间轴的监听</summary>
+                        /// <param name="eventSignature" type="function">时间轴事件处理的函数签名</param>
+                        if (arguments.length > 0) {
+                            this.EventHeaderCfgList[eventSignature["__cg_eventHandleKey"]].IsMonitor = true;
+                        }
+                        else {
+                            $.each(this.EventHeaderCfgList, function () { this.IsMonitor = true; });
+
+                        }
+
+                        return this;
+                    },
+                    Stop: function (eventSignature) {
+                        /// <summary>停止某个时间轴</summary>
+                        /// <param name="eventSignature" type="function">时间轴事件处理的函数签名</param>
+                        if (arguments.length > 0) {
+                            this.EventHeaderCfgList[eventSignature["__cg_eventHandleKey"]].IsMonitor = false;
+                        }
+                        else {
+                            $.each(this.EventHeaderCfgList, function () { this.IsMonitor = false; });
+                        }
+                    },
+                    Remove: function (eventSignature) {
+                        /// <summary>删除时间轴某个监听</summary>
+                        /// <param name="eventSignature" type="function">时间轴事件处理的函数签名</param>
+                        if (this.TimelineEvent != null) {
+                            //有参数的话
+                            if (arguments.length > 0) {
+                                //删除该句柄的事件绑定
+                                this.TimelineEvent.Remove(eventSignature);
+                                //删除时间轴配置
+                                if (!!eventSignature["__cg_eventHandleKey"]) {
+                                    delete this.EventHeaderCfgList["__cg_eventHandleKey"];
+                                }
+
+                            }
+                            else {
+                                //全部删除
+                                this.TimelineEvent.Remove();
+                                this.EventHeaderCfgList = {};
+                            }
+                        }
+                        return this;
+                    },
+                    RemoveAll: function () {
+                        /// <summary>删除所有监听</summary>
+                        this.Remove();
+                        return this;
+                    }
+                }
+
+
+            });
+            } catch (e) {
+                alert(e.message);
+            }
+            Cmn.Am = Cmn.Animate;
+            alert("==================4");
+        })(window);
+        alert("==================5");
+        Cmn.IsDebuging = true;
+        alert("==================6");
+        try{
+        Cmn.Am.Timeline.Add(function () {
+            Cmn.DebugLog("a");
+        }, 500);
+        } catch (e) {
+            alert(e.message);
+        }
+        alert("a");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

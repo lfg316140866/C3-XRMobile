@@ -1,0 +1,577 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=no;" />
+    <link href="css/reset.css" rel="stylesheet" />
+    <link href="css/animate.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <script src="Js/jquery-1.9.1.min.js"></script>
+    <script src="Js/jquery.easing.min.js"></script>
+    <script src="Js/Cmn.js"></script>
+    <script type="text/javascript">
+        if (Cmn.Func.IsIPad()) {
+            if (location.href.indexOf("?") > -1) {
+                var _canshu = location.href.substring(location.href.indexOf("?"), location.href.length);
+                location.href = "http://c3-xr.dongfeng-citroen.com.cn/" + _canshu;
+            } else {
+                location.href = "http://c3-xr.dongfeng-citroen.com.cn/";
+            }
+        }
+    </script>
+    <script src="Js/CmnAjax.js"></script>
+    <script src="Js/animate/AnimateMan.js"></script>
+    <script src="Js/animate/ScenesSwitch.js"></script>
+    <script src="Js/animate/Scenes.js"></script>
+    <script src="Js/animate/AnimateFrame.js"></script>
+    <script src="Js/animate/BasAnimate.js"></script>
+    <script src="Js/CmnFuncExd.js"></script>
+    <script src="Js/SiteJs/jquery.cycle.all.js"></script>
+    <script src="Js/WechatShare.js"></script>
+    <script src="Js/spritespin.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=4f63d110e9a8aa86c6a5a6e15e30ba8e"></script>
+    <script src="Js/Dx.js"></script>
+    <script src="Js/SiteJs/Highlights.js"></script>
+    <script src="Js/SiteJs/Index.js"></script>
+    <!--<script src="Js/jquery.reel.js"></script>-->
+    <title>C3-XR</title>
+    <script type="text/javascript">
+        var _smq = _smq || [];
+        _smq.push(['_setAccount', '517f8bb', new Date()]);
+        _smq.push(['pageview']);
+
+        (function () {
+            var sm = document.createElement('script'); sm.type = 'text/javascript'; sm.async = true;
+            sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdnmaster.com/sitemaster/collect.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sm, s);
+        })();
+    </script>
+    <script type="text/javascript">
+        (function () {
+            var c = document.createElement("script");
+            c.type = "text/javascript";
+            c.async = true;
+            c.src = ("https:" == document.location.protocol ? "https://" : "http://") + "sitemonitor.cn.miaozhen.com/boot/46149";
+            var h = document.getElementsByTagName("script")[0];
+            h.parentNode.insertBefore(c, h);
+        })();
+        $(function () {
+            Cmn.Func.TouchSlide("#home", 20, function (dir) {
+                if(dir=="up")
+                {
+                    TestDiverMoveDown();
+                    $(".footer_btn").removeClass("footer_set");
+                    $(".activity_btn").addClass("footer_set");
+                    AnimateFrame.SlideTo("activity_mechanism_newadd");
+                }
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <!--留资-->
+    <div class="home_inf JscHome_Inf">
+        <input type="text" class="home_name pub_homeinp JscResName" placeholder="姓名">
+        <input type="tel" maxlength="11" class="home_phone pub_homeinp JscResPhone" placeholder="电话">
+        <div class="checkbox_bar">
+            <!--添加一个check_update为选中状态-->
+            <em class="check_set Js_check_set"></em><span>我已阅读<a href="javascript:void(0)" class="Js_attesting">免责声明</a> ，同意接受来自东风雪铁龙的推广信息</span>
+        </div>
+        <div class="home_link JscHome_Link"><a href="javascript:void(0)"></a></div>
+        <p class="apply_btn JscBtn"><a href="javascript:void(0)"><img src="images/btn/apply_btn.png" /></a></p>
+    </div>
+    <div class="Wrap cmn-AnimteFrameContainer">
+        <div class="Main cmn-ScenesContainer">
+            <!--首页-->
+            <div class="cmn-Scenes PublicScenes home" id="home">
+                <div class="Bg"><!--<img src="images/bg/home_bg1.jpg" />--></div>
+                <div class="home_box">
+                    <div class="home_bar">
+                        <ul class="home_nav">
+                            <li id="JscPicUrl"><a href="javascript:void(0)"><img src="images/bg/home_bg1_1.jpg" /></a></li>
+                        </ul>
+                    </div>
+                    <div style="display:none" class="JscKvLefts"></div>
+                    <div style="display:none" class="JscKvRights"></div>
+                    <div class="home_carousel">
+
+                    </div>
+                </div>  
+                <div class="Inner">  
+                                
+                </div>
+            </div>
+
+
+            <!--活动机制one-->
+            <div class="cmn-Scenes PublicScenes activity_mechanism" id="activity_mechanism" scenesqueuename="activity">
+                <div class="Bg mechanism_bg"><img src="images/load.png" lazypath="images/bg/activity_mechanismbg_1.jpg" /></div>
+                <div class="Inner">
+                    <div class="activity_arrow1"><img src="images/load.png" lazypath="images/btn/down_arrow1.png" /></div>
+                </div>
+            </div>
+            <!--活动机制two-->
+            <div class="cmn-Scenes PublicScenes activity_mechanism_newadd" id="activity_mechanism_newadd" scenesqueuename="activity">
+                <div class="Bg"><img src="images/load.png" lazypath="images/added/activity_mechanismbgnewadd.jpg" /></div>
+                <div class="Inner">
+                    <div class="down_arrow2">
+                        <img src="images/load.png" lazypath="images/btn/down_arrow2.png" />
+                    </div>
+                </div>
+            </div>
+            <!--活动机制三-->
+            <div class="cmn-Scenes PublicScenes activity_mechanism_three" id="activity_mechanism_three" scenesqueuename="activity">
+                <div class="Bg"><img src="images/load.png" lazypath="images/added/activity_mechanismbg3_1.jpg" /></div>
+                <div class="Inner">
+                    <div class="down_arrow2">
+                        <img src="images/load.png" lazypath="images/btn/down_arrow2.png" />
+                    </div>
+                </div>
+            </div>
+
+            <!--活动机制three-->
+            <div class="cmn-Scenes PublicScenes activity_mechanism_two" id="activity_mechanism_two" scenesqueuename="activity">
+                <div class="Bg" style="top:20px;"><img src="images/load.png" lazypath="images/added/activity_mechanismbg2_1.jpg" /></div>
+                <div class="Inner">
+                    <div class="liuzi_box">
+                        <div class="liuzi">
+                            <img src="images/load.png" lazypath="images/added/liuzi.png" />
+                        </div>
+                        <div class="user_name">
+                            <input type="text" class="name_text Js_LyfName" />
+                        </div>
+                        <div class="inf_sex clearfix">
+                            <!--添加一个set_sex为性别选中状态-->
+                            <p class="sex_con  fl  ">
+                                <i value="男" class="set_sex Js_LyfSexCon"></i><span class="sex_box">男</span>
+                            </p>
+                            <p class="sex_con  fr  ">
+                                <i value="女" class="Js_LyfSexCon"></i><span class="sex_box">女</span>
+                            </p>
+                        </div>
+                        <div class="user_phone">
+                            <input type="tel" maxlength="11" class="phone_text Js_LyfPhone" />
+                        </div> 
+                        <div class="checkbox_box">
+                            <!--添加一个check_update为选中状态-->
+                            <em class="check_sel check_update"></em>
+                            <span>我已阅读<a style=" font-size: 20px; color: #ff0000; text-decoration: underline; display: inline !important;" href="javascript:void(0)" class="Js_attesting">免责声明</a> ，同意接受来自东风雪铁龙的推广信息</span>
+                        </div>                       
+                    </div>
+                    <div class="yuyue_btn Js_LyfYuYueBtn">
+                        <img src="images/load.png" lazypath="images/btn/yuyue_btn.png" />
+                    </div>
+                    <!--<div class="down_arrow3">
+                        <img src="images/load.png" lazypath="images/btn/down_arrow3.png" />
+                    </div>-->
+                </div>
+            </div>
+
+            
+
+          
+            <!--配置-->
+            <div class="cmn-Scenes PublicScenes configure" id="configure" scenesqueuename="configure">
+                <div class="Bg"><img src="images/load.png" lazypath="images/bg/configure_bg.jpg" /></div>
+                <div class="set_deploy">
+                    <select name="" id="">
+                        <option value="CWT时尚型">CWT时尚型</option>
+                        <option value="CWT先锋型">CWT先锋型</option>
+                        <option value="CWT智能型">CWT智能型</option>
+                        <option value="THP先锋型">THP先锋型</option>
+                        <option value="THP智能型">THP智能型</option>
+                        <option value="THP旗舰型">THP旗舰型</option>
+                    </select>
+                </div>
+                <div class="Inner">
+                    <div class="deploy_car"><img src="images/load.png" lazypath="images/deploy_car.png" alt=""></div>
+                    <div class="deploy_icon"><img src="images/load.png" lazypath="images/inf_icon.png" alt=""></div>
+                    <div class="deploy_tip"><img src="images/load.png" lazypath="images/deploy_tip.png" alt=""></div>
+                    <div class="configure_price">
+                        <!--1.6L CWT时尚型-->
+                        <img class="configure_price1 pub_price" src="images/load.png" lazypath="images/configure_price1.png" />
+                        <!--1.6L CWT先锋型-->
+                        <img class="configure_price2 pub_price" src="images/load.png" lazypath="images/configure_price2.png" />
+                        <!--1.6L CWT智能型-->
+                        <img class="configure_price3 pub_price" src="images/load.png" lazypath="images/configure_price3.png" />
+                        <!--1.6L THP先锋型-->
+                        <img class="configure_price4 pub_price" src="images/load.png" lazypath="images/configure_price4.png" />
+                        <!--1.6L THP智能型-->
+                        <img class="configure_price5 pub_price" src="images/load.png" lazypath="images/configure_price5.png" />
+                        <!--1.6L THP旗舰型-->
+                        <img class="configure_price6 pub_price" src="images/load.png" lazypath="images/configure_price6.png" />
+                    </div>
+                    <div class="configure_con">
+                        <!--1.6L CWT时尚型配置详情-->
+                        <div class="configuration_details_1 configuration_details"><img src="images/load.png" lazypath="images/bg/configuration_details_1_img.png" alt=""></div>
+                        <!--1.6L CWT先锋型配置详情-->
+                        <div class="configuration_details_2 configuration_details"><img src="images/load.png" lazypath="images/bg/configuration_details_2_img.png" alt=""></div>
+                        <!--1.6L CWT智能型配置详情-->
+                        <div class="configuration_details_3 configuration_details"><img src="images/load.png" lazypath="images/bg/configuration_details_3_img.png" alt=""></div>
+                        <!--1.6L THP先锋型配置详情-->
+                        <div class="configuration_details_4 configuration_details"><img src="images/load.png" lazypath="images/bg/configuration_details_4_img.png" alt=""></div>
+                        <!--1.6L THP智能型配置详情-->
+                        <div class="configuration_details_5 configuration_details"><img src="images/load.png" lazypath="images/bg/configuration_details_5_img.png" alt=""></div>
+                        <!--1.6L THP旗舰型配置详情-->
+                        <div class="configuration_details_6 configuration_details"><img src="images/load.png" lazypath="images/bg/configuration_details_6_img.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--经销商查询-->
+            <div class="cmn-Scenes PublicScenes dealer" id="dealer" scenesqueuename="dealer">
+                <div class="Bg"><img src="images/load.png" lazypath="images/bg/dealer_bg.jpg" /></div>
+                <div class="Inner">
+                    <div class="dealer_tip"><img src="images/load.png" lazypath="images/dealer_tip.png" alt=""></div>
+                    <div style="line-height:1;" id="l-map" class="map"><img src="images/load.png" lazypath="images/map.png" alt=""></div>
+                    <div class="province_set box_set">
+                        <select name="" id="DealerProvince">
+                            <option class="JscProvince dat-province dat-province_id-value" value="上海市"></option>
+                        </select>
+                    </div>
+                    <div class="city_set box_set">
+                        <select name="" id="DealerCity">
+                            <option class="JscCity dat-city dat-city_id-value" value="上海市"></option>
+                        </select>
+                    </div>
+                    <div class="dealer_btn JscDealer_btn"><a href="javascript:void(0)"><img src="images/load.png" lazypath="images/btn/dealer_btn.png" alt=""></a></div>
+                </div>
+            </div>
+
+
+            <!--360旋转-->
+            <div class="cmn-Scenes PublicScenes revolve" id="revolve" scenesqueuename="revolve">
+                <div class="Bg"><img id="RevolveBG" src="images/load.png" lazypath="images/bg/revolve_bg.jpg" /></div>
+                <div class="Inner">
+                    <!--<img src="images/bg/revolve_bg.jpg" style="position: absolute;">-->
+                    <div class="revolve_tip"><img src="images/load.png" lazypath="images/revolve_tip.png" alt=""></div>
+                    <div class="big_icon"><img src="images/load.png" lazypath="images/big_icon.png" alt=""></div>
+                    <div class="round_num"><img src="images/load.png" lazypath="images/round_num.png" alt=""></div>
+                    <div class="round"><img src="images/load.png" lazypath="images/round.png" alt=""></div>
+                    <div class="revolve_box">
+                        <ul class="revolve_nav">
+                            <!--添加一个color_select为选中车子颜色-->
+                            <li carcolor="red" class="red_bar color_select"><a href="javascript:void(0)"></a></li>
+                            <li carcolor="white" class="white_bar "><a href="javascript:void(0)"></a></li>
+                            <li carcolor="blue" class="blue_bar"><a href="javascript:void(0)"></a></li>
+                            <li carcolor="brown" class="brown_bar"><a href="javascript:void(0)"></a></li>
+                        </ul>
+                    </div>
+                    <!--红色车子-->
+                    <div carcolor="red" class="red_box color_car">
+                        <div class="car_red1_03 car_box">
+                            <img src="images/load.png" lazypath="images/360/red/car_red1_03.png" alt="">
+
+                        </div>
+                    </div>
+                    <!--白色车子-->
+                    <div carcolor="white" class="white_box color_car">
+                        <div style="display:block" class="car_white1_03 car_box">
+                            <img src="images/load.png" lazypath="images/360/white/car_white6_03.png" alt="">
+
+                        </div>
+                    </div>
+                    <!--蓝色车子-->
+                    <div carcolor="blue" class="blue_box color_car">
+                        <div style="display:block" class="car_blue1_03 car_box">
+                            <img src="images/load.png" lazypath="images/360/blue/car_blue6_03.png" alt="">
+
+                        </div>
+                    </div>
+                    <!--紫色车子-->
+                    <div carcolor="brown" class="brown_box color_car">
+                        <div style="display:block" class="car_brown1_03 car_box">
+                            <img src="images/load.png" lazypath="images/360/brown/car_brown6_03.png" alt="">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!--资讯-->
+            <div class="cmn-Scenes PublicScenes information" id="information" scenesqueuename="information">
+                <div class="Bg"><img src="images/load.png" lazypath="images/bg/information_bg.jpg" /></div>
+                <div class="Inner">
+                    <div class="information_tip"><img src="images/load.png" lazypath="images/information_tip.png" alt=""></div>
+                    <!--资讯详情-->
+                    <div class="inf_box JscNewsList">
+                        <div class="inf_nav">
+                            <!--添加一个inf_select为祖安中状态-->
+                            <div newtype="0" class="inf_review inf_sidemenu inf_select"><a class=" dat-news_type-newtype" href="javascript:void(0)"></a></div>
+                            <div newtype="1" class="inf_news inf_sidemenu"><a class=" dat-news_type-newtype" href="javascript:void(0)"></a></div>
+                            <div newtype="2" class="inf_praise inf_sidemenu"><a class=" dat-news_type-newtype" href="javascript:void(0)"></a></div>
+                        </div>
+                        <div class="inf_item">
+                            <!--inf_bar为一条咨询信息-->
+                            <div class="inf_bar">
+                                <div class="inf_con">
+                                    <div class="inf_left pub_inf"><img class="dat-pic_url-src" src="images/load.png" lazypath="images/inf_img.png" alt=""></div>
+                                    <div class="inf_right pub_inf">
+                                        <h4 class="dat-new_media"></h4>
+                                        <h3 class="dat-title"></h3>
+                                        <p class="dat-introdution"></p>
+                                    </div>
+                                    <div class="inf_arrow pub_inf"><a href="javascript:void(0)" news_id="{news_id}"><img src="images/inf_arrow.png" alt=""></a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inf_line"><img src="images/load.png" lazypath="images/inf_line.png" alt=""></div>
+                        <div class="inf_car"><img src="images/load.png" lazypath="images/inf_car.png" alt=""></div>
+                        <div class="inf_icon"><img src="images/load.png" lazypath="images/inf_icon.png" alt=""></div>
+                    </div>
+
+                    <!--资讯弹出-->
+                    <div class="inf_pop JscNewsInf">
+                        <div class="inf_pop_tip">
+                            <h3 id="JscMedia">汽车之家</h3>
+                            <p><a href="javascript:void(0)" class="JscFanHui"><img src="images/load.png" lazypath="images/btn/return_btn.png" alt=""></a></p>
+                        </div>
+                        <div id="NewsTitle" class="inf_pop_title"><h2>小身材/大能量 试驾东风雪铁龙C3-XR</h2></div>
+                        <div id="JscConent" class="inf_pop_box">
+                            <div class="inf_pop_con">
+                                <p>
+                                    小型SUV近两年在国内的火爆程度已经不用多说，从各个厂家的动作就能看出他们对这个市场有多期待。随着竞争愈演愈烈，要想脱颖而出，不仅需要良好的综合素质，最     好还得拿出点别人没有的真本事。我今天要试驾的这款车就有点与众不同，这个小家伙竟然搭载了一台1.6T涡轮增压发动机，可以想象它跑起来得有多猛。
+
+                                </p>
+                            </div>
+                            <div class="inf_pop_img"><img src="images/load.png" lazypath="images/inf_pop_img.png" alt=""></div>
+                            <div class="inf_pop_con">
+                                <p>
+                                    小型SUV近两年在国内的火爆程度已经不用多说，从各个厂家的动作就能看出他们对这个市场有多期待。随着竞争愈演愈烈，要想脱颖而出，不仅需要良好的综合素质，最好还得拿出点别人没有的真本事。我今天要试驾的这款车就有点与众不同，这个小家伙竟然搭载了一台1.6T涡轮增压发动机，可以想象它跑起来得有多猛。
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--亮点-->
+            <div class="cmn-Scenes PublicScenes bright" id="bright" scenesqueuename="bright">
+                <div class="Bg"><img src="images/load.png" lazypath="images/bg/bright_bg.jpg" /></div>
+                <div class="drop_text"><img src="images/load.png" lazypath="images/drop_text.png" alt=""></div>
+                <div class="Inner">
+                    <div class="bright_box">
+                        <div class="bright_item">
+                            <ul class="bright_nav">
+                                <li style=" display: block;">
+                                    <!--力的标题-->
+                                    <div class="power_tip bright_tip"><img src="images/load.png" lazypath="images/power_tip.png" alt=""></div>
+                                    <div class="power_box bright_con">
+                                        <!--发动机-->
+                                        <div class="power_con1">
+                                            <div class="power_con1_bg bright_bar"><img src="images/load.png" lazypath="images/bright/power/power_con1_bg.png" alt=""></div>
+                                            <div class="power_con1_img bright_bar"><img src="images/load.png" lazypath="images/bright/power/power_con1_img.png" alt=""></div>
+                                            <div class="power_con1_text bright_text"><img src="images/load.png" lazypath="images/bright/power/power_con1_text.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--力的标题-->
+                                    <div class="power_tip bright_tip"><img src="images/load.png" lazypath="images/power_tip.png" alt=""></div>
+                                    <div class="power_box bright_con">
+                                        <!--智能启能-->
+                                        <div class="power_con3">
+                                            <div class="power_con3_bg bright_bar"><img src="images/load.png" lazypath="images/bright/power/power_con3_bg.png" alt=""></div>
+                                            <div class="power_con3_img bright_bar"><img src="images/load.png" lazypath="images/bright/power/power_con3_img.png" alt=""></div>
+                                            <div class="power_con3_text bright_text"><img src="images/load.png" lazypath="images/bright/power/power_con3_text.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--力的标题-->
+                                    <div class="power_tip bright_tip"><img src="images/load.png" lazypath="images/power_tip.png" alt=""></div>
+                                    <div class="power_box bright_con">
+                                        <!--变速箱-->
+                                        <div class="power_con2">
+                                            <div class="power_con2_bg bright_bar"><img src="images/load.png" lazypath="images/bright/power/power_con2_bg.png" alt=""></div>
+                                            <div class="power_con2_text bright_text"><img src="images/load.png" lazypath="images/bright/power/power_con2_text.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--驭的标题-->
+                                    <div class="control_tip bright_tip"><img src="images/load.png" lazypath="images/control_tip.png" alt=""></div>
+                                    <div class="control_box bright_con">
+                                        <!--多路况-->
+                                        <div class="control_con3">
+                                            <div class="control_con3_bg1 bright_bar"><img src="images/load.png" lazypath="images/bright/control/control_con3_bg1.png" alt=""></div>
+                                            <div class="control_con3_text bright_text"><img src="images/load.png" lazypath="images/bright/control/control_con3_text.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--驭的标题-->
+                                    <div class="control_tip bright_tip"><img src="images/load.png" lazypath="images/control_tip.png" alt=""></div>
+                                    <div class="control_box bright_con">
+                                        <!--车载互联-->
+                                        <div class="control_con2">
+                                            <div class="control_con2_bg bright_bar"><img src="images/load.png" lazypath="images/bright/control/control_con2_bg.png" alt=""></div>
+                                            <div class="control_con2_text bright_text"><img src="images/load.png" lazypath="images/bright/control/control_con2_text.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--驭的标题-->
+                                    <div class="control_tip bright_tip"><img src="images/load.png" lazypath="images/control_tip.png" alt=""></div>
+                                    <div class="control_box bright_con">
+                                        <!--车身稳定-->
+                                        <div class="control_con1">
+                                            <div class="control_con1_bg bright_bar"><img src="images/load.png" lazypath="images/bright/control/control_con1_bg.png" alt=""></div>
+                                            <div class="control_con1_text bright_text"><img src="images/load.png" lazypath="images/bright/control/control_con1_text.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--美的标题-->
+                                    <div class="pretty_tip bright_tip"><img src="images/load.png" lazypath="images/pretty_tip.png" alt=""></div>
+                                    <div class="pretty_box bright_con">
+                                        <!--长轴距-->
+                                        <div class="pretty_con2">
+                                            <div class="pretty_con2_bg bright_bar"><img src="images/load.png" lazypath="images/bright/pretty/pretty_con2_bg.png" alt=""></div>
+                                            <div class="pretty_con2_text bright_text"><img src="images/load.png" lazypath="images/bright/pretty/pretty_con2_text.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--美的标题-->
+                                    <div class="pretty_tip bright_tip"><img src="images/load.png" lazypath="images/pretty_tip.png" alt=""></div>
+                                    <div class="pretty_box bright_con">
+                                        <!--设计理念-->
+                                        <div class="pretty_con1">
+                                            <div class="pretty_con1_bg bright_bar"><img src="images/load.png" lazypath="images/bright/pretty/pretty_con1_bg.png" alt=""></div>
+                                            <div class="pretty_con1_text bright_text"><img src="images/load.png" lazypath="images/bright/pretty/pretty_con1_text.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <!--美的标题-->
+                                    <div class="pretty_tip bright_tip"><img src="images/load.png" lazypath="images/pretty_tip.png" alt=""></div>
+                                    <div class="pretty_box bright_con">
+                                        <!--全景天幕-->
+                                        <div class="pretty_con3">
+                                            <div class="pretty_con3_bg bright_bar"><img src="images/load.png" lazypath="images/bright/pretty/pretty_con3_bg.png" alt=""></div>
+                                            <div class="pretty_con3_text bright_text"><img src="images/load.png" lazypath="images/bright/pretty/pretty_con3_text.png" alt=""></div>
+                                            <div class="pretty_con3_img1 bright_bar"><img src="images/load.png" lazypath="images/bright/pretty/pretty_con3_img1.png" alt=""></div>
+                                            <div class="pretty_con3_img2 bright_bar"><img src="images/load.png" lazypath="images/bright/pretty/pretty_con3_img2.png" alt=""></div>
+                                            <div class="pretty_con3_img3 bright_bar"><img src="images/load.png" lazypath="images/bright/pretty/pretty_con3_img3.png" alt=""></div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="bright_left_arrow"><a href="javascript:void(0)"><img src="images/load.png" lazypath="images/bright_left_arrow.png" alt=""></a></div>
+                        <div class="bright_right_arrow"><a href="javascript:void(0)"><img src="images/load.png" lazypath="images/bright_right_arrow.png" alt=""></a></div>
+                    </div>
+                    <div class="pull_box">
+                        <!--改变他的宽度来改变他的背景-->
+                        <div class="pull_set"></div>
+                        <!--改变他的left值来控制按钮-->
+                        <div class="drag_bar"><img src="images/load.png" lazypath="images/drag_bar.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+            <div style="display:none">
+                <!--红车-->
+                <img src="images/load.png" lazypath="images/360/red/car_red1_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/red/car_red2_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/red/car_red3_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/red/car_red4_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/red/car_red5_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/red/car_red6_03.png" alt="">
+
+                <!--白车-->
+                <img src="images/load.png" lazypath="images/360/white/car_white6_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/white/car_white5_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/white/car_white4_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/white/car_white3_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/white/car_white2_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/white/car_white1_03.png" alt="">
+
+                <!--蓝车-->
+                <img src="images/load.png" lazypath="images/360/blue/car_blue6_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/blue/car_blue5_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/blue/car_blue4_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/blue/car_blue3_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/blue/car_blue2_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/blue/car_blue1_03.png" alt="">
+
+                <!--紫车-->
+                <img src="images/load.png" lazypath="images/360/brown/car_brown6_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/brown/car_brown5_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/brown/car_brown4_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/brown/car_brown3_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/brown/car_brown2_03.png" alt="">
+                <img src="images/load.png" lazypath="images/360/brown/car_brown1_03.png" alt="">
+            </div>
+
+
+            <!--活动机制-->
+            <!--<div class="cmn-Scenes PublicScenes activity_mechanism" id="activity_mechanism">
+                <div class="Bg mechanism_bg"><img src="images/load.png" lazypath="images/bg/activity_mechanismbg.jpg" /></div>
+                <div class="Inner activity_inner">
+                    <div class="activity_car"><img src="images/load.png" lazypath="images/activity_car.png" alt=""></div>
+                    <div class="people"><img src="images/load.png" lazypath="images/people.png" alt=""></div>
+                    <div class="activity_tip"><img src="images/load.png" lazypath="images/activity_tip.png" alt=""></div>
+                    <div class="join_btn"><a href="http://c3xrziyoupai.dongfeng-citroen.com.cn/mobile/"><img src="images/load.png" lazypath="images/btn/join_btn.png" /></a></div>
+                    <div class="mechanism_box">
+                        <div class="mechanism_img"><img src="images/load.png" lazypath="images/mechanism_img.png" /></div>
+                        <p>1、进入活动网页，并生成自由宣言</p>
+                        <p>2、将自由宣言分享到新浪微博，并@东风雪铁龙C3XR</p>
+                        <p>3、即日起至4月30日进入活动网页，并生成自由宣言</p>
+                        <p>4、分享有机会赢终极大奖东风雪铁龙C3XR1年使用权</p>
+                        <p>5、即日起至4月30日进入活动网页，并生成自由宣言</p>
+                        <p>6、分享有机会赢终极大奖东风雪铁龙C3XR1年使用权</p>
+                    </div>
+                </div>
+            </div>-->
+
+           </div><!--Main_end-->
+    </div><!--Wrap_end-->
+
+
+    <div class="attesting_float Js_attesting_float" style="display:none; position:absolute; left:0; bottom:0; z-index:100000; background: url(../images/attesting_bg.jpg) repeat;width:100%;height:975px;background-size:100% 100%;overflow:hidden;">
+
+
+    </div>
+    <!--顶部logo-->
+    <div class="header">
+            <div class="title JscTitle"><a href="javascript:void(0)"><img src="images/title.png" alt=""></a></div>
+            <div class="logo JscLogo"><a href="javascript:void(0)"><img src="images/logo.png" alt=""></a></div>
+        </div>
+
+
+    <!--底部导航-->
+    <div class="footer">
+            <div class="footer_box">
+                <ul class="footer_nav">
+                    <!--添加一个footer_set为按钮选中状态-->
+                    <li class=" footer_btn activity_btn "><a href="javascript:void(0)"></a></li>
+                    <li class=" footer_btn  drop_btn "><a href="javascript:void(0)"></a></li>
+                    <li class=" footer_btn deploy_btn"><a href="javascript:void(0)"></a></li>
+                    <li class=" footer_btn limit_btn"><a href="javascript:void(0)"></a></li>
+                    <li class=" footer_btn information_btn"><a href="javascript:void(0)"></a></li>
+                </ul>
+            </div>
+        </div>
+
+    <!--查询按钮-->
+    <div class="change_box">
+            <!--添加一个change_set为按钮选中状态-->
+            <div class="diver change_btn change_set" id="JscDiver"><a href="javascript:void(0)"></a></div>
+            <div class="search change_btn" id="JscSearch"><a href="javascript:void(0)"></a></div>
+            <div class="return change_btn JscLogo" id="JscReturn"><a href="javascript:void(0)"></a></div>
+    </div>
+
+
+</body>
+<script>
+    Cmn.Func.MobileAdaptive(640, 1040, "images/AdviseVertical.png", Cmn.Func.MobileAdaptiveMode.WidthHeight);
+</script>
+</html>

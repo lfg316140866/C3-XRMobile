@@ -1,0 +1,24 @@
+/*******************************************************************************************************
+* DateTime: 2015-08-15 21:20:28		IP: 114.89.40.47Brower: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2456.0 Safari/537.36
+* Url : http://dongxuec3xrmobile.nn.cagoe.com/Itf/Php/AjaxItf.php?method=Login
+sql::select userid from cmn_usr_users where username = '刘永飞' and password='55458331374ea01d82e1ca8bd9367364'
+*******************************************************************************************************/
+
+/*******************************************************************************************************
+* DateTime: 2015-08-15 21:20:28		IP: 114.89.40.47Brower: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2456.0 Safari/537.36
+* Url : http://dongxuec3xrmobile.nn.cagoe.com/Itf/Php/AjaxItf.php?method=Login
+GetUserIDCacheKey::
+*******************************************************************************************************/
+
+/*******************************************************************************************************
+* DateTime: 2015-08-15 21:20:42		IP: 114.89.40.47Brower: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2456.0 Safari/537.36
+* Url : http://dongxuec3xrmobile.nn.cagoe.com/Itf/Php/AjaxItf.php?method=Login
+sql::select userid from cmn_usr_users where username = '刘永飞' and password='0676e1602c88b9131f917d7f24073e93'
+*******************************************************************************************************/
+
+/*******************************************************************************************************
+* DateTime: 2015-08-15 21:20:42		IP: 114.89.40.47Brower: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2456.0 Safari/537.36
+* Url : http://dongxuec3xrmobile.nn.cagoe.com/Itf/Php/AjaxItf.php?method=Login
+GetUserIDCacheKey::
+*******************************************************************************************************/
+

@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "c3-xr mobile", "http://localhost:18105", "{30E25CA7-2906-40B8-9230-F7185CE3A631}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""$/c3-xr mobile", FYNYAAAA"
+		SccAuxPath = ""
+		SccLocalPath = "."
+		SccProvider = "MSSCCI:Microsoft Visual SourceSafe"
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_18105"
+		Debug.AspNetCompiler.PhysicalPath = "..\c3-xr mobile\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_18105\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_18105"
+		Release.AspNetCompiler.PhysicalPath = "..\c3-xr mobile\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_18105\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\c3-xr mobile\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 1
+		SccWebProject0 = true
+		SccProjectUniqueName0 = http://localhost:18105
+		SccProjectName0 = \u0022$/c3-xr\u0020mobile\u0022,\u0020FYNYAAAA
+		SccLocalPath0 = E:\\lfg\\Item\\DongXueItem\\c3-xr\u0020mobile
+		SccProvider0 = MSSCCI:Microsoft\u0020Visual\u0020SourceSafe
+		SccProjectEnlistmentChoice0 = 2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30E25CA7-2906-40B8-9230-F7185CE3A631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E25CA7-2906-40B8-9230-F7185CE3A631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

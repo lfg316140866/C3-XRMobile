@@ -1,0 +1,12 @@
+/*******************************************************************************************************
+* DateTime: 2015-08-06 17:21:10		IP: 180.175.171.141Brower: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+* Url : http://dongxuec3xrmobile.nn.cagoe.com/Itf/Php/AjaxItf.php?method=Login
+sql::select userid from cmn_usr_users where username = 'C3XR' and password='ad6a5dcf402d9389b80a02fe6ea52ae3'
+*******************************************************************************************************/
+
+/*******************************************************************************************************
+* DateTime: 2015-08-06 17:21:10		IP: 180.175.171.141Brower: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+* Url : http://dongxuec3xrmobile.nn.cagoe.com/Itf/Php/AjaxItf.php?method=Login
+GetUserIDCacheKey::
+*******************************************************************************************************/
+

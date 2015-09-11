@@ -1,0 +1,8 @@
+@charset "UTF-8";
+//-----------------------------------------------------	
+%input{position: absolute;border: none;font-size: 26px;color: #000;height: 48px;line-height: 48px;background:none;left: 108px;width: 455px;padding-left: 20px;}
+%wh100{width: 100%;height: 100%;}
+%topandleft{position: absolute;top: 0;left: 0;}
+%left50{position: absolute;left: 50%;}
+%select{background:none;background:transparent;-webkit-appearance: none;font-size:20px;color: #b5b5b5; height: 50px;line-height: 50px;border:none;padding-left: 10px;padding-right: 55px;}
+%scroll{overflow-y:scroll;-webkit-overflow-scrolling: touch; -moz-overflow-scrolling: touch; -o-overflow-scrolling: touch; }
